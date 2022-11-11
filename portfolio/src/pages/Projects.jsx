@@ -9,7 +9,7 @@ const Projects = () => {
   // const [index, setIndex] = useState(0);
   console.log(projects);
   useEffect(() => {
-    const query = `*[_type == 'projects']`;
+    const query = `*[_type == 'projects'] |  order(serial)`;
     Client.fetch(query).then((data) => {
       setProjects(data);
     });
@@ -32,13 +32,13 @@ const Projects = () => {
         <span className="font-bold italic "> Good Buisness</span>
       </h2>
       <div className=" flex justify-center items-start flex-wrap mt-8 ">
-        {projects?.map((project, i) => (
+        {projects?.map((project) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
             className="app__profile-item w-[190px] flex justify-center items-center flex-col m-8 cursor-pointer group bg-white dark:bg-amber-300 p-4 rounded-xl"
-            key={i}
+            key={project.serial}
           >
             <img
               src={urlFor(project.imgUrl)}

@@ -4,6 +4,11 @@ export default {
   type: "document",
   fields: [
     {
+      name: "serial",
+      title: "Serial",
+      type: "number",
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
@@ -44,6 +49,13 @@ export default {
           type: "string",
         },
       ],
+    },
+  ],
+  orderings: [
+    {
+      title: "Serial",
+      name: "serial",
+      by: [{ field: "serial", direction: "asc" }],
     },
   ],
 };
