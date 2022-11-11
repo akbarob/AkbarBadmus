@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Style = {
   div: "flex w-full md:w-[400px] h-[150px] bg-white justify-evenly items-center my-10 rounded-xl shadow-lg ",
-  p: "font-bold text-2xl cursor-pointer",
+  p: "font-bold text-2xl cursor-pointer px-2",
 };
 const ContactMe = () => {
   return (
@@ -43,10 +43,14 @@ const ContactMe = () => {
           className={Style.div}
         >
           {/* <MdAttachEmail size={40} className="text-blue-500" /> */}
+          <span className="text-3xl">📩</span>
+
           <p className={Style.p}>
-            <a href="mailto:akbarbadmus07@gmail.com">
-              {" "}
-              📩 Akbarbadmus@gmail.com
+            <a
+              href="mailto:akbarbadmus07@gmail.com"
+              className="flex flex-col justify-center items-center"
+            >
+              Akbarbadmus@gmail.com
             </a>
           </p>
         </motion.div>

@@ -49,15 +49,15 @@ const Navbar = ({ theme, isDark, setIsDark, setActive }) => {
               }}
               exit={{ x: [0, 500] }}
               initial={{ opacity: 0 }}
-              className="fixed z-50 w-2/3 h-screen right-0 bottom-0 top-0"
+              className="fixed z-50 w-2/3 bg-white h-screen right-0 inset-y-0"
             >
-              <div className="absolute  bg-white h-full ">
+              {/* <div className="absolute bg-white h-screen ">
                 <img src={images.bgWhite} className=" object-cover h-full" />
-              </div>
+              </div> */}
               <div className="absolute z-50 flex p-2 w-full justify-center">
                 <HiX
                   onClick={() => setToggle(false)}
-                  className="bg-amber-600 rounded-full w-6 h-6 p-1 text-white flex justify-end absolute right-2"
+                  className="bg-amber-600 rounded-full w-6 h-6 p-1 text-white flex justify-start absolute left-2"
                 />
                 <ul className="p-2 flex flex-col my-2 w-full h-full ml-10">
                   {["home", "about", "projects", "skills", "contact"].map(
@@ -67,7 +67,7 @@ const Navbar = ({ theme, isDark, setIsDark, setActive }) => {
                           <a
                             href={`#${item}`}
                             onClick={() => setToggle(false)}
-                            className="text-gray-400 dark:text-red-500 capitalize font-semibold transition-all ease-in-out duration-75 hover:text-gray-800 my-10 "
+                            className=" dark:text-red-500 capitalize font-semibold transition-all ease-in-out duration-75 hover:text-gray-800 my-10 "
                           >
                             {item}
                           </a>

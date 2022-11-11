@@ -37,7 +37,7 @@ export default function App() {
     }
   }, [theme]);
   return (
-    <div className=" bg-slate-200 dark:bg-amber-200 font-quicksand dark:text-rose-500">
+    <div className=" bg-slate-200 dark:bg-amber-200 font-quicksand dark:text-rose-500 relative">
       <Navbar
         isDark={isDark}
         setIsDark={setIsDark}
