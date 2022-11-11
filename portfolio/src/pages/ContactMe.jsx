@@ -29,10 +29,13 @@ const ContactMe = () => {
           className={Style.div}
         >
           <BsPhone size={40} />
-          <IoLogoWhatsapp
-            size={40}
-            className="bg-green-600 text-white rounded-md"
-          />
+          <a href="https://wa.link/c0gpxz">
+            <IoLogoWhatsapp
+              size={40}
+              className="bg-green-600 text-white rounded-md"
+            />
+          </a>
+
           <p className={Style.p}>+234 809-548-1372</p>
         </motion.div>
 
