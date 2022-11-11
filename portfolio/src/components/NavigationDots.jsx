@@ -13,7 +13,7 @@ const NavigationDots = ({ active }) => {
                 active === item ? "bg-amber-700" : ""
               } w-[10px] h-[10px] rounded-[50%] bg-white dark:bg-amber-400 m-2 transition-all duration-200 ease-in-out hover:bg-amber-900 hover:dark:bg-amber-900`}
             >
-              {console.log("active-item:", active, item)}
+              {/* {console.log("active-item:", active, item)} */}
             </a>
           );
         })}

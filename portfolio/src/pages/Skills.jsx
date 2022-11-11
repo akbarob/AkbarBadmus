@@ -37,7 +37,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="flex  flex-col items-center justify-center mt-5 h-screen"
+      className="flex  flex-col items-center justify-center mt-5 h-full"
     >
       <motion.h2
         whileInView={{ y: [-50, 0] }}
@@ -54,7 +54,7 @@ const Skills = () => {
         {skills.map((skill, i) => {
           return (
             <motion.li key={skill + i} className="">
-              <div className=" w-28 h-28 md:w-[100px] md:h-[100px] bg-white rounded-full mx-4 my-4 flex items-center justify-center shadow-lg p-8">
+              <div className=" w-24 h-24 md:w-[100px] md:h-[100px] bg-white rounded-full mx-4 my-4 flex items-center justify-center shadow-lg p-8">
                 <img
                   src={urlFor(skill.icon)}
                   alt={skill.name}

@@ -18,7 +18,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className=" flex flex-col items-center justify-center mt-5 mb-12 h-screen"
+      className=" flex flex-col items-center justify-center mt-5 mb-12h-full "
     >
       <motion.h2
         whileInView={{ y: [-50, 0] }}
@@ -26,12 +26,12 @@ const Projects = () => {
       >
         Projects
       </motion.h2>
-      <h2 className="head-text ">
+      <h2 className="text-lg  ">
         {" "}
-        I Know that <span> Good Code means </span>
-        Good Buisness
+        I Know that <span className="font-bold italic"> Good Code </span> means
+        <span className="font-bold italic "> Good Buisness</span>
       </h2>
-      <div className="app__profiles flex justify-center items-start flex-wrap mt-8 ">
+      <div className=" flex justify-center items-start flex-wrap mt-8 ">
         {projects?.map((project, i) => (
           <motion.div
             whileInView={{ opacity: 1 }}
@@ -47,7 +47,7 @@ const Projects = () => {
             />
 
             <div
-              className={`backdrop-blur hidden opacity-80 justify-evenly items-center absolute w-full h-[150px] group-hover:flex `}
+              className={`backdrop-blur hidden opacity-80 justify-evenly items-center absolute  w-full h-[150px] group-hover:flex px-4 `}
             >
               <a
                 href={project.projectLink}

@@ -5,7 +5,6 @@ import { Client, urlFor } from "../client";
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
-  console.log(urlFor(abouts.imgUrl));
   useEffect(() => {
     const query = `*[_type == 'abouts']`;
     Client.fetch(query).then((data) => {

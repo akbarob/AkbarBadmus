@@ -42,9 +42,12 @@ const ContactMe = () => {
           }}
           className={Style.div}
         >
-          <MdAttachEmail size={40} className="text-blue-500" />
+          {/* <MdAttachEmail size={40} className="text-blue-500" /> */}
           <p className={Style.p}>
-            <a> 📩 akbarbadmus@gmail.com</a>
+            <a href="mailto:akbarbadmus07@gmail.com">
+              {" "}
+              📩 Akbarbadmus@gmail.com
+            </a>
           </p>
         </motion.div>
       </div>

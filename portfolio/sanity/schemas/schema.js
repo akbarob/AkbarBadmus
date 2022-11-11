@@ -8,6 +8,7 @@ import brands from "./brands";
 import abouts from "./abouts";
 import skills from "./skills";
 import contact from "./contact";
+import profile from "./profile";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,5 +23,6 @@ export default createSchema({
     abouts,
     skills,
     contact,
+    profile,
   ]),
 });

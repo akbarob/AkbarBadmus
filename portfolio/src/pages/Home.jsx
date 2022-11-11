@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Client, urlFor } from "../client";
 import { images } from "../constant";
 
 const Home = () => {
+  const [Profile, setProfile] = useState([]);
   const scaleVaraints = {
     whileInView: {
       scale: [0, 1],
@@ -13,6 +15,13 @@ const Home = () => {
       },
     },
   };
+  const { imgUrl } = Profile;
+  useEffect(() => {
+    const query = `*[_type == 'profile']`;
+    Client.fetch(query).then((data) => {
+      setProfile(data);
+    });
+  }, []);
   return (
     <div
       id="home"
@@ -33,7 +42,7 @@ const Home = () => {
           </div>
 
           <div className="items-end flex flex-col shadow-lg  rounded-md mt-9 py-4 px-8  border-[1px] border-black/10 uppercase text-right">
-            <p className="text-2xl font-semibold">Web Developer</p>
+            <p className="text-2xl font-semibold"> 💻 Web Developer</p>
             <p className="">Designer</p>
           </div>
         </div>
@@ -48,12 +57,15 @@ const Home = () => {
           transition={{ duration: 1, ease: "easeInOut", delayChildren: 0.5 }}
           src={images.circle}
           alt="profile"
-          className="absolute top-0 bottom-0 right-0 left-0 w-full h-[90%]"
+          className="absolute top-0 bottom-0 right-0 left-0 w-full h-[90%] "
         />
-        <img
-          src={images.profile}
-          className="w-full object-contain relative z-10"
-        />
+        {Profile.map((profile, i) => (
+          <img
+            src={urlFor(profile.imgUrl)}
+            key={i}
+            className="w-full object-contain relative z-10 rounded-3xl px-5"
+          />
+        ))}
       </motion.div>
       <motion.div
         variants={scaleVaraints}
