@@ -2,24 +2,20 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { images } from "../constant";
 import { Client, urlFor } from "../client";
-
+import { useStateProvider } from "../Context/State";
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
-  useEffect(() => {
-    const query = `*[_type == 'abouts']`;
-    Client.fetch(query).then((data) => {
-      setAbouts(data);
-    });
-  }, []);
+  const { setActive } = useStateProvider();
 
   return (
-    <div
-      id="about"
-      className=" flex flex-col items-center justify-center mt-5 h-screen"
+    <motion.div
+      whileInView={() => setActive("about")}
+      className=" flex flex-col items-center justify-center  mb-20 h-screen pt-20"
     >
       <motion.h2
-        whileInView={{ y: [-50, 0] }}
-        className="font-bold text-2xl mb-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ y: [-50, 0], opacity: [0, 0, 1] }}
+        className="font-bold text-2xl mb-12 pt-10"
+        id="about"
       >
         About Me
       </motion.h2>
@@ -32,7 +28,7 @@ const About = () => {
           "frontend, or "front end", and at this point I'm too afraid to ask.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

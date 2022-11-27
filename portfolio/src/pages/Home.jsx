@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Client, urlFor } from "../client";
 import { images } from "../constant";
-
+import { useStateProvider } from "../Context/State";
 const Home = () => {
+  const { setActive } = useStateProvider();
+
   const [Profile, setProfile] = useState([]);
   const scaleVaraints = {
     whileInView: {
@@ -23,9 +25,10 @@ const Home = () => {
     });
   }, []);
   return (
-    <div
+    <motion.div
       id="home"
-      className="flex md:flex-row flex-col md:items-center justify-center mt-5"
+      className="flex md:flex-row flex-col items-center justify-center h-full mb-12 "
+      whileInView={() => setActive("home")}
     >
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
@@ -82,7 +85,7 @@ const Home = () => {
           </div>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

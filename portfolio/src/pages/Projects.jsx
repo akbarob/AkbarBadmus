@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Client, urlFor } from "../client";
+import { useStateProvider } from "../Context/State";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  // const [Hovered, setHovered] = useState(false);
-  // const [index, setIndex] = useState(0);
-  console.log(projects);
+  const { setActive } = useStateProvider();
+
   useEffect(() => {
     const query = `*[_type == 'projects'] |  order(serial)`;
     Client.fetch(query).then((data) => {
@@ -16,9 +16,10 @@ const Projects = () => {
   }, []);
 
   return (
-    <div
+    <motion.div
+      whileInView={() => setActive("projects")}
       id="projects"
-      className=" flex flex-col items-center justify-center mt-5 mb-12h-full "
+      className=" flex flex-col items-center justify-center mt-5 mb-32  pt-20"
     >
       <motion.h2
         whileInView={{ y: [-50, 0] }}
@@ -32,13 +33,13 @@ const Projects = () => {
         <span className="font-bold italic "> Good Buisness</span>
       </h2>
       <div className=" flex justify-center items-start flex-wrap mt-8 ">
-        {projects?.map((project) => (
+        {projects?.map((project, i) => (
           <motion.div
+            key={i}
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
             className="app__profile-item w-[190px] flex justify-center items-center flex-col m-8 cursor-pointer group bg-white dark:bg-amber-300 p-4 rounded-xl"
-            key={project.serial}
           >
             <img
               src={urlFor(project.imgUrl)}
@@ -75,7 +76,7 @@ const Projects = () => {
           </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

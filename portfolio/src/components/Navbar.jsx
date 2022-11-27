@@ -14,7 +14,12 @@ const Navbar = ({ theme, isDark, setIsDark, setActive }) => {
   return (
     <nav className="flex items-center justify-between py-2 px-4 backdrop-blur-sm bg-slate-200/50 border-2 border-solid sticky top-0 z-50">
       <div className="flex items-center justify-center">
-        <img src={images.AkbarBadmus} className="w-[100px] h-[20-px] " />
+        <a href="#home">
+          <img
+            src={images.AkbarBadmus}
+            className="w-[100px] h-[20-px] cursor-pointer"
+          />
+        </a>
       </div>
       <div className=" hidden md:flex-1 md:flex justify-center items-center">
         <ul className="flex">

@@ -11,7 +11,6 @@ import Footer from "./components/Footer";
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
-  const [active, setActive] = useState("");
   const theme = isDark ? "dark" : "light";
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -37,12 +36,12 @@ export default function App() {
     }
   }, [theme]);
   return (
-    <div className=" bg-slate-200 dark:bg-amber-200 font-quicksand dark:text-rose-500 relative">
+    <div className=" bg-slate-200 dark:bg-amber-200 font-quicksand dark:text-rose-500 relative scroll-smooth  snap-y">
       <Navbar
         isDark={isDark}
         setIsDark={setIsDark}
         theme={theme}
-        setActive={setActive}
+        // setActive={setActive}
       />
       <Home />
       <About />
@@ -50,7 +49,7 @@ export default function App() {
       <Skills />
       <ContactMe />
       <SocialMedia />
-      <NavigationDots />
+      {/* <NavigationDots /> */}
       <Footer />
     </div>
   );

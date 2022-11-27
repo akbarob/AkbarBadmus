@@ -3,16 +3,19 @@ import { BsPhone } from "react-icons/bs";
 import { MdAttachEmail } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { useStateProvider } from "../Context/State";
 
 const Style = {
   div: "flex w-full md:w-[400px] h-[150px] bg-white justify-evenly items-center my-10 rounded-xl shadow-lg ",
   p: "font-bold text-2xl cursor-pointer px-2",
 };
 const ContactMe = () => {
+  const { setActive } = useStateProvider();
   return (
-    <div
+    <motion.div
       id="contact"
-      className="flex flex-col items-center justify-center h-screen p-8"
+      className="flex flex-col items-center justify-center p-8"
+      whileInView={() => setActive("contact")}
     >
       <motion.h2
         whileInView={{ y: [-50, 0] }}
@@ -58,7 +61,7 @@ const ContactMe = () => {
           </p>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

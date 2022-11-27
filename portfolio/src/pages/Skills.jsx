@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Client, urlFor } from "../client";
+import { useStateProvider } from "../Context/State";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -25,6 +26,8 @@ const item = {
 };
 
 const Skills = () => {
+  const { setActive } = useStateProvider();
+
   const [skills, setSkills] = useState([]);
   console.log(skills);
   useEffect(() => {
@@ -37,7 +40,8 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="flex  flex-col items-center justify-center mt-5 h-full"
+      className="flex  flex-col items-center justify-center mt-5  mb-32  h-screen pt-20"
+      whileInView={() => setActive("skills")}
     >
       <motion.h2
         whileInView={{ y: [-50, 0] }}
@@ -58,7 +62,7 @@ const Skills = () => {
                 <img
                   src={urlFor(skill.icon)}
                   alt={skill.name}
-                  className=" w-full h-full  object-cover hover:scale-125 transition-all duration-500 ease-in-out"
+                  className=" w-full h-full  object-contain hover:scale-125 transition-all duration-500 ease-in-out"
                 />
               </div>
               <p>{skill.name}</p>
