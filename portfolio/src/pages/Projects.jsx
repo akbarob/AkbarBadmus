@@ -71,8 +71,15 @@ const Projects = () => {
                 />
               </a>
             </div>
-
-            <h2 className="mt-2 font-bold truncate">{project.title}</h2>
+            <a
+              href={project.codeLink}
+              target={"_blank"}
+              rel="noopener noreferrer"
+            >
+              <h2 className="mt-2 font-bold truncate cursor-pointer">
+                {project.title}
+              </h2>
+            </a>
           </motion.div>
         ))}
       </div>
