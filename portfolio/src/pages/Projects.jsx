@@ -72,7 +72,7 @@ const Projects = () => {
               </a>
             </div>
             <a
-              href={project.codeLink}
+              href={project.projectLink}
               target={"_blank"}
               rel="noopener noreferrer"
             >
